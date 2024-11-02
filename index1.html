@@ -204,11 +204,11 @@
 
 <div class="slider">
   <div class="slides">
-    <div class="slide"><img src="/IMG /p12.jpg" alt="Bike"></div>
-    <div class="slide"><img src="/IMG /p10.jpg" alt="Bed"></div>
-    <div class="slide"><img src="/IMG /p6.jpg" alt="Product 1"></div>
-    <div class="slide"><img src="/IMG /p20.jpg" alt="Product 2"></div>
-    <div class="slide"><img src="/IMG /p9.jpg" alt="Product 3"></div>
+    <div class="slide"><img src="../IMG/p12.jpg" alt="Bike"></div>
+    <div class="slide"><img src="../IMG/p10.jpg" alt="Bed"></div>
+    <div class="slide"><img src="./IMG/p6.jpg" alt="Product 1"></div>
+    <div class="slide"><img src="./IMG/p20.jpg" alt="Product 2"></div>
+    <div class="slide"><img src="./IMG/p9.jpg" alt="Product 3"></div>
   </div>
   <div class="navigation">
     <button class="nav-button prev">&#10094;</button>
@@ -252,7 +252,7 @@
     const div = document.createElement('div');
     div.className = item;
     div.innerHTML = `
-      <img src="/IMG /${item}.jpg" alt="Product Image"/>
+      <img src="./IMG/${item}.jpg" alt="Product Image"/>
       <h3 class="poisa">₹${price[i + 1]}</h3>
       <button class="buy-now" onclick="window.location.href='index2.html'">Buy Now</button>
     `;

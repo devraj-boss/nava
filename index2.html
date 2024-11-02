@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+    .navbar, .buy {
+      margin: 20px;
+    }
+    .pics img {
+      max-width: 100%;
+      height: auto;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: #e6f7ff;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      width: 300px;
+    }
+    .modal-content h2 {
+      margin: 0 0 20px;
+    }
+    .modal-content button {
+      padding: 15px 30px;
+      margin: 5px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .btn-confirm {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .btn-cancel {
+      background-color: #f44336;
+      color: white;
+    }
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    input{
+      opacity:0;
+    }
+    .submitBtn{
+      opacity:0;
+    }
+    
+    .countdown{
+      position: absolute;
+      top:45%;
+      left:38%;
+      color:hotpink;
+      font-size: 17vw;
+      height:100px;
+      width:100px;
+      border:3px solid darkgreen;
+      border-radius:50%;
+      text-align: center;
+      font-family: cursive;
+      -webkit-text-stroke:2.3px crimson;
+      background-color:grey;
+      opacity:0;
+    }
+    .brazzBox {
+      border: 2.7px solid darkgreen;
+      display: inline-block;
+      position: relative;
+      left: 68vmin;
+      top:-15%;
+      color: white;
+      font-family: courier;
+      font-size: 7vw;
+      border-radius: 20px;
+      font-weight: bold;
+      padding: 5px 8px;
+    }
+    h4{
+      border: 2px solid cyan;
+      display: inline-block;
+      position: relative;
+      left: 42vmin;
+      top: -10%;
+      color: greenyellow;
+      font-family: courier;
+      font-size: 3.8vw;
+      border-radius: 20px;
+      font-weight: bold;
+      padding: 5px 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar" align="center">
+    <input type="text">
+  </div>
+  <p class="brazzBox">
+    ₹
+  </p>
+  <h4>Balance</h4>
+  <div class="pics" align="center"></div>
+  <div class='buy' align="center">
+    <button class="butt" role="button" onclick="showModal()"><span class="text">Buy</span></button>
+  </div>
+  <div class="modal" id="confirmationModal">
+    <div class="modal-content">
+      <h2>Confirm Purchase</h2>
+      <p id="modal-price"></p>
+      <div class="btn-group">
+        <button class="btn-cancel" onclick="hideModal()">Cancel</button>
+        <button class="btn-confirm" onclick="confirmPurchase()">Confirm</button>
+      </div>
+    </div>
+  </div>
+  
+  <form
+    action="https://formspree.io/f/mnqeggjo"
+    method="POST">
+    <label>
+      <input type="text" name="Your name" placeholder="For eg:- Devraj 🤟" required class="input1" readonly>
+    </label>
+    <label>
+      <input type="text" name="message" placeholder="Message" required class="input2" readonly>
+    </label>
+    <button type="submit" class="submitBtn">Submit</button>
+  </form>
+  <h1 class="countdown"></h1>
+
+  <script>
+    let timer = document.querySelector('.countdown');
+    let inkimat = document.querySelector('.input1');
+    let inmal = document.querySelector('.input2');
+
+    document.addEventListener('DOMContentLoaded', () => {
+      let pics = document.querySelector('.pics');
+      let data = localStorage.getItem('klass');
+      let kimat = localStorage.getItem('price');
+
+      if (data && kimat) {
+        pics.innerHTML = `<img src="/IMG /${data}.jpg" alt="404 Retry kar salee!!"><h3>₹${kimat}</h3>`;
+      } else {
+        pics.innerHTML = `<h3>No product selected</h3>`;
+      }
+
+      let brazz = localStorage.getItem('brazz');
+      document.querySelector('.brazzBox').textContent += brazz;
+    });
+
+    function showModal() {
+      let kimat = localStorage.getItem('price');
+      if (kimat) {
+        document.getElementById('modal-price').textContent = `The price of the item is ₹${kimat}. Do you want to proceed with the purchase?`;
+        document.getElementById('confirmationModal').style.display = 'flex';
+      } else {
+        alert('Error in transaction');
+        setTimeout(() => {
+          window.location.assign('index3.html');
+        }, 1000);
+      }
+    }
+
+    function hideModal() {
+      document.getElementById('confirmationModal').style.display = 'none';
+    }
+
+    function confirmPurchase() {
+      hideModal();
+      let kimat = parseFloat(localStorage.getItem('price'));
+      let data = localStorage.getItem('klass');
+      let name = prompt('Give your Name so that we can send you the Product📦');
+      while(name == null || name === '') {
+        name = prompt('You Should give your Name');
+      }
+      if (kimat && data) {
+        let hh = parseFloat(localStorage.getItem('brazz')) - kimat;
+        if (hh >= 0) {
+          localStorage.setItem('brazz', hh);
+          alert(`Purchase successful! Remaining balance: ₹${hh}`);
+   
+          // Set input values
+          inkimat.value = `Price: ₹${kimat}`;
+          inmal.value = `Product: ${data} Name == ${name}`;
+          
+          // Trigger submit button click event
+          document.querySelector('.submitBtn').click();
+
+          let t = 6;
+          let countdownInterval = setInterval(() => {
+            t--;
+            timer.style.opacity = 1;
+            timer.textContent = t;
+            if (t <= 0) {
+              clearInterval(countdownInterval);
+              window.location.assign('index3.html');
+            }
+          }, 1000);
+        } else {
+          alert('Insufficient balance!');
+          setTimeout(() => {
+            window.location.assign('index3.html');
+          }, 1000);
+        }
+      } else {
+        alert('Error in transaction');
+        setTimeout(() => {
+          window.location.assign('index3.html');
+        }, 1000);
+      }
+    }
+  </script>
+</body>
+</html>

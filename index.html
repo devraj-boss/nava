@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dongle&family=Rosarivo:ital@0;1&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Dongle&family=MuseoModerno&family=Rosarivo:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *{
+  padding:0px;
+  margin:0px;
+  font-family:"Rosarivo";
+}
+html,body{
+  height:100%;
+  width:100%;
+}
+body {
+  box-sizing: border-box;
+  background-image: url('/IMG /bgg4.jpg');
+  filter:blur(0.1px);
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow-y: hidden;
+  position: absolute;
+}
+
+
+
+.spinner {
+ width:15vw;
+ height:23vw;
+ 
+ animation: spinner-y0fdc1 2.4s infinite ease;
+ transform-style: preserve-3d;
+ transition: all linear 2s;
+}
+
+.spinner > div {
+background-color: rgba(0,77,255,0.1);
+ height: 100%;
+ position: absolute;
+ width: 100%;
+ border: 2px solid #004dff;
+}
+
+.spinner div:nth-of-type(1) {
+ transform: translateZ(-22px) rotateY(180deg);
+}
+
+
+.spinner div:nth-of-type(2) {
+ transform: rotateY(-270deg) translateX(50%);
+ transform-origin: top right;
+}
+
+.spinner div:nth-of-type(3) {
+ transform: rotateY(270deg) translateX(-50%);
+ transform-origin: center left;
+}
+
+.spinner div:nth-of-type(4) {
+ transform: rotateX(90deg) translateY(-50%);
+ transform-origin: top center;
+}
+
+.spinner div:nth-of-type(5) {
+ transform: rotateX(-90deg) translateY(50%);
+ transform-origin: bottom center;
+}
+
+.spinner div:nth-of-type(6) {
+ transform: translateZ(22px);
+}
+
+@keyframes spinner-y0fdc1 {
+ 0% {
+  transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);
+ }
+
+ 50% {
+  transform: rotate(45deg) rotateX(-385deg) rotateY(25deg);
+ }
+
+ 100% {
+  transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);
+ }
+}
+.spin{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70vw;
+}
+
+
+
+.innerPic{
+  height:20vw;
+  width:auto;
+  margin-top:-3vw;
+  margin-left: -1.2vw;
+  
+}
+h3{
+  color:#fff;
+  text-align: center;
+  font-size: 6vw;
+  text-decoration: underline;
+  letter-spacing: 1.8px;
+  margin-top: 4vw;
+}
+.o{
+  color:red;
+font-size: 7.2vw;
+border-top:3px solid whitesmoke;
+}
+.t{
+  color:cyan;
+  font-size: 7.5vw;
+  border:1.8px solid white;
+  border-radius: 20px;
+}
+.B{
+color:seagreen;
+  font-size: 7.5vw;
+}
+  </style>
+</head>
+
+<body>
+
+ <h3>
+   <span class="B">B</span>uy <span class="o">Anime</span> Clothes And <span class="t">Gadgets.</span>
+ </h3>
+ <p style="font-size: 4.3vw;  font-family: cursive; margin-left: 70vw; color: #fff; text-decoration: underline; line-height: 3;">
+  Devraj's creation
+</p>
+  <div class="spin">
+    
+
+  <div class="spinner">
+  
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+ <center><h1
+ style="padding:3vw;
+ color:white;
+ text-decoration: underline;
+ text-align: center;
+ transition: all linear 2s;
+ font-size:4vw;
+ margin-top:10px;
+ text-align: center;
+ 
+ letter-spacing: 2px;
+ "><img src="/IMG /bgg1.png"class='innerPic'alt="">
+ </h1></center> 
+
+  
+</div>
+
+  </div>
+   <center>
+     <h2 style="
+     font-family:'MuseoModerno';
+     color:#8048e0;
+    text-shadow:0px 1px 7px  cyan;
+    font-size:10vw;
+    margin-top: 8.3vw;
+
+    -webkit-text-stroke:0.2px white;
+    letter-spacing:0.6vw;
+    text-decoration: underline;
+    padding:3vw 4vw;
+    margin-bottom: 2vw;
+    ">Studios</h2>
+   </center>
+<script>
+  setTimeout(()=>{
+    window.location.href='index1.html'
+  },4000);
+  
+  
+</script>
+</body>
+
+</html>

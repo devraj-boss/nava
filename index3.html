@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Code Verification</title>
+</head>
+<body>
+ <center><h2>💲💲Try buying Brazz Redeem code from Devraj💲💲</h2></center> 
+  <script>
+    let data = localStorage.getItem('klass');
+    let kimat = localStorage.getItem('price');
+
+    let currency = () => {
+      let braz = prompt('Enter the Brazz Coins Code');
+
+      let codes = [
+        ['AV1234', 'CU2345', 'EB3456', 'GH4567', 'IJ5678', 'KL6789', 'MN7890', 'OP8901', 'QR9012', 'ST0123'],
+        ['PQ1234', 'RS2345', 'TU3456', 'VW4567', 'XY5678', 'ZA6789', 'BC7890', 'DE8901', 'FG9012', 'HI0123'],
+        ['JK1234', 'LM2345', 'NO3456', 'UV4567', 'WX5678', 'YZ6789', 'AA7890', 'BB8901', 'CC9012', 'DD0123'],
+        ['EE1234', 'FF2345', 'GG3456', 'HH4567', 'II5678', 'JJ6789', 'KK7890', 'LL8901', 'MM9012', 'NN0123'],
+        ['OO1234', 'PP2345', 'QQ3456', 'RR4567', 'SS5678', 'TT6789', 'UU7890', 'VV8901', 'WW9012', 'XX0123'],
+        ['YY1234', 'ZZ2345', 'AAA3456', 'BBB4567', 'CCC5678', 'DDD6789', 'EEE7890', 'FFF8901', 'GGG9012', 'HHH0123'],
+        ['III1234', 'JJJ2345', 'KKK3456', 'LLL4567', 'MMM5678', 'NNN6789', 'OOO7890', 'PPP8901', 'QQQ9012', 'RRR0123'],
+        ['SSS1234', 'TTT2345', 'UUU3456', 'VVV4567', 'WWW5678', 'XXX6789', 'YYY7890', 'ZZZ8901', 'AAAA9012', 'BBBB0123'],
+        ['CCCC1234', 'DDDD2345', 'EEEE3456', 'FFFF4567', 'GGGG5678', 'HHHH6789', 'IIII7890', 'JJJJ8901', 'KKKK9012', 'LLLL0123'],
+        ['XUXY1P34', 'NHS2345', 'OOOO3456', 'PPPP4567', 'QQQQ5678', 'RRRR6729', 'SSSF7890', 'TTTT8901', 'UUUU9012', 'VVVV0123']
+      ];
+
+      let points = [100, 280, 380, 450, 580, 720, 870, 970, 1100, 5000];
+
+      let codeUsed = false;
+      let usedCodes = JSON.parse(localStorage.getItem('usedCodes')) || [];
+
+      if (usedCodes.includes(braz)) {
+        alert('Code already used');
+        return;
+      }
+
+      for (let i = 0; i < codes.length; i++) {
+        if (codes[i].includes(braz)) {
+          let brazz = parseFloat(localStorage.getItem('brazz')) || 0;
+          localStorage.setItem('brazz', brazz + points[i]);
+          usedCodes.push(braz);
+          localStorage.setItem('usedCodes', JSON.stringify(usedCodes));
+          console.log(`Code: ${braz} - Points: ${points[i]}`);
+          alert(`Code accepted! You received ${points[i]} points.`);
+          codeUsed = true;
+          break;
+        }
+      }
+
+      if (!codeUsed) {
+        alert('Invalid code');
+      }
+     
+    }
+setTimeout(()=>{window.location.href='index1.html'},6000) 
+    currency();
+    
+  </script>
+</body>
+</html>
